@@ -4,7 +4,10 @@
   "description": "Gatsby plugin to get posts written in medium",
   "main": "gatsby-node.js",
   "scripts": {
-    "format": "prettier --write \"src/**/*.js\""
+    "format": "prettier --write \"src/**/*.js\"",
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
   },
   "keywords": [
     "gatsby",
@@ -22,9 +25,14 @@
   "website": "https://github.com/devs-group",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "1.17.0"
+    "prettier": "1.17.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "babel-preset-gatsby-package": "^0.1.4",
+    "cross-env": "^5.1.4"
   },
   "dependencies": {
+    "@babel/runtime": "^7.0.0",
     "rss-parser": "3.7.0"
   }
 }
