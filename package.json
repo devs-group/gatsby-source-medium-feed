@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-plugin-medium-feed",
+  "name": "gatsby-source-medium-feed",
   "version": "1.0.2",
   "description": "Gatsby plugin to get posts written in medium",
   "main": "gatsby-node.js",
@@ -9,9 +9,10 @@
   "keywords": [
     "gatsby",
     "medium",
+    "feed",
     "gatsby-plugin",
-    "gatsby-source-plugin",
-    "gatsby-medium-plugin"
+    "gatsby-source",
+    "gatsby-source-medium-feed"
   ],
   "author": "Devs Group <info@devs-group.com>",
   "repository": {
