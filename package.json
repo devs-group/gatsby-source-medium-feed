@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-medium-feed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gatsby plugin to get posts written in medium",
   "main": "gatsby-node.js",
   "scripts": {
