@@ -2,6 +2,7 @@
   "name": "gatsby-plugin-medium-feed",
   "version": "1.0.1",
   "description": "Gatsby plugin to get posts written in medium",
+  "main": "gatsby-node.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.js\""
   },
@@ -13,6 +14,11 @@
     "gatsby-medium-plugin"
   ],
   "author": "Devs Group <info@devs-group.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devs-group/gatsby-plugin-medium-feed.git"
+  },
+  "website": "https://github.com/devs-group",
   "license": "MIT",
   "devDependencies": {
     "prettier": "1.17.0"

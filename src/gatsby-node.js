@@ -1,4 +1,4 @@
-const parser = require('rss-parser')
+const rssParser = require('rss-parser')
 const crypto = require('crypto')
 
 const createContentDigest = obj =>
@@ -8,7 +8,7 @@ const createContentDigest = obj =>
    .digest('hex')
 
 function getJsonFeed(userName) {
-   const parser = new RssParser({
+   const parser = new rssParser({
       customFields: {
          item: [
             ['content:encoded', 'content']
@@ -34,17 +34,33 @@ function getJsonFeed(userName) {
 }
 
 function sourceNodes({
-   boundActionCreators
+   actions,
+   createNodeId,
+   reporter
 }, {
-   userName
+   userName,
+   name
 }) {
    const {
       createNode
-   } = boundActionCreators
+   } = actions
+   if (!userName | !name) {
+      const missingOption = !userName && !name ? 'userName and name' : !userName ? 'userName' : 'name'
+      reporter.panic(`${missingOption} has to defined in plugin configuration.`)
+   }
    getJsonFeed(userName).then(feed => {
-      createNode({
-         feed,
-         contentDigest: createContentDigest(feed)
+      feed.forEach(item => {
+         const id = createNodeId(item.link)
+         createNode({
+            ...item,
+            id,
+            parent: null,
+            children: [],
+            internal: {
+               contentDigest: createContentDigest(feed),
+               type: name
+            }
+         })
       })
    })
 }

@@ -22,6 +22,7 @@ plugins: [
     resolve: 'gatsby-plugin-medium-feed',
     options: {
       userName: '@...', // Medium user name
+      name: 'MediumFeed', // GraphQL query AllMediumFeed
     },
   },
 ]
