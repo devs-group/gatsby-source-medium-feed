@@ -17,7 +17,7 @@
   "author": "Devs Group <info@devs-group.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/devs-group/gatsby-plugin-medium-feed.git"
+    "url": "https://github.com/devs-group/gatsby-source-medium-feed.git"
   },
   "website": "https://github.com/devs-group",
   "license": "MIT",
