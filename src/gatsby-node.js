@@ -8,18 +8,31 @@ function getJsonFeed(userName) {
          ],
       },
    })
-   return parser.parseURL('https://medium.com/feed/' + userName).then(feed => {
+   return parser.parseURL(`https://medium.com/feed/${userName}`).then(feed => {
       const parsedFeeds = feed.items.map(item => {
          const thumbnail = item.content.match(
             /(?<=(<img[^>]+src="))([^"\s]+)(?!"[^>]*\/z)/g
          )[0]
+         const {
+            title,
+            isoDate: date,
+            creator: author,
+            link,
+            content
+         } = item
+         const slug = item.title
+            .replace(/[^a-zA-Z0-9\s]+/g, '')
+            .toLowerCase()
+            .split(' ')
+            .join('-')
          return {
-            title: item.title,
-            date: item.isoDate,
-            author: item.creator,
-            link: item.link,
-            content: item.content,
+            title,
+            date,
+            author,
+            link,
+            content,
             thumbnail,
+            slug
          }
       })
       return parsedFeeds

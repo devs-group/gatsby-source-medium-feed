@@ -10,6 +10,7 @@ Available properties are:
 - link
 - content
 - thumbnail
+- slug
 
 ## Usage
 
