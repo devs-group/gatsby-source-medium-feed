@@ -43,7 +43,7 @@ function sourceNodes({
    } = boundActionCreators
    getJsonFeed(userName).then(feed => {
       createNode({
-         ...feed,
+         feed,
          contentDigest: createContentDigest(feed)
       })
    })
