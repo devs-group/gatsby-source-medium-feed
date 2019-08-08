@@ -37,6 +37,17 @@ function getJsonFeed(userName) {
       })
       return parsedFeeds
    })
+   .catch(error => {
+      return [{
+         title: 'No feed found',
+         date: new Date(),
+         author: 'No author',
+         link: '',
+         content: '',
+         thumbnail: 'https://loremflickr.com/640/360',
+         slug: ''
+      }]
+   })
 }
 
 function sourceNodes({
